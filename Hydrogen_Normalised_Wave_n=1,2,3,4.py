@@ -1,3 +1,6 @@
+# Based on the Book "Atoms Molecules and Photons - Wolfgang Demtroder" 2nd Edition
+# Normalised Radial Equations on page 163 Table 5.1
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -11,15 +14,15 @@ def Nf(nn):
     return temp
 
 def Xf(nn):
-    ra = np.linspace(0,25,num=300)
+    ra = np.linspace(0,25,num=300) #just a repitition from line 8
     temp = ra/(nn*a)
     return temp
 
 #evaluating the values
-#yn_l
+#y<n value>_<l value>
 
 n=1
-y1 = 2*Nf(n)*np.exp(-Xf(n))
+y1_0 = 2*Nf(n)*np.exp(-Xf(n))
 
 n=2
 y2_0 = 2*Nf(n)*np.exp(-Xf(n))*(1-Xf(n)) 
@@ -41,7 +44,7 @@ y4_3 = (2/(3*pow(25,1/2)))*Nf(n)*np.exp(-Xf(n))*pow(Xf(n),3)
 ## All plots
 #
 
-plt.plot(r,y1, label = "n=1,l=0")
+plt.plot(r,y1_0, label = "n=1,l=0")
 plt.plot(r,y2_0, label = "n=2,l=0")
 plt.plot(r,y2_1, label = "n=2,l=1")
 plt.plot(r,y3_0, label = "n=3,l=0")
@@ -64,7 +67,7 @@ plt.show()
 ###
 ## Only n=1
 #
-plt.plot(r,y1, label = "n=1,l=0")
+plt.plot(r,y1_0, label = "n=1,l=0")
 plt.ylim(-0.3,1.5)
 plt.xlabel("Radius r")
 plt.ylabel("Normalized Radial Wave function R(r)")
